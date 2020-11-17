@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+	{# {% apply inline_css %} #}
+	<div class="dish">
+		<p class="card-title d-inline">{{ dish.name }}</p>
+		<p class="card-text d-inline">{{ dish.price }}</p>
+		<p class="card-text d-inline">{{ dish.restaurant }}</p>
+	</div>
+	{# {% endapply %} #}
+{% endblock %}
