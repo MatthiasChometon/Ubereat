@@ -7,9 +7,15 @@ use App\Repository\RestaurantRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Serializer\Annotation\Groups;
+use ApiPlatform\Core\Serializer\Filter\GroupFilter;
+use ApiPlatform\Core\Serializer\Filter\PropertyFilter;
+use ApiPlatform\Core\Annotation\ApiFilter;
 
 /**
  * @ApiResource()
+ * @ApiFilter(PropertyFilter::class)
+ * @ApiFilter(GroupFilter::class)
  * @ORM\Entity(repositoryClass=RestaurantRepository::class)
  */
 class Restaurant
@@ -18,11 +24,13 @@ class Restaurant
      * @ORM\Id
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
+     * @Groups({"restaurants"})
      */
     private $id;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * 
      */
     private $name;
 

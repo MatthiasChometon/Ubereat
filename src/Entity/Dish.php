@@ -34,6 +34,11 @@ class Dish
      */
     private $restaurant;
 
+    /**
+     * @ORM\Column(type="string", length=510, nullable=true)
+     */
+    private $preview;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -71,6 +76,18 @@ class Dish
     public function setRestaurant(?Restaurant $restaurant): self
     {
         $this->restaurant = $restaurant;
+
+        return $this;
+    }
+
+    public function getPreview(): ?string
+    {
+        return $this->preview;
+    }
+
+    public function setPreview(?string $preview): self
+    {
+        $this->preview = $preview;
 
         return $this;
     }
